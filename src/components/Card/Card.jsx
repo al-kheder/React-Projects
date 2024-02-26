@@ -7,8 +7,9 @@ export default function Card({ item }) {
       <div className="card">
         <div className="image">
             <img src={item.img} className="mainImage" alt="" />
-            <img src={item.id} className="secondImage" alt="" />
+            <img src={item.img2} className="secondImage" alt="" />
         </div>
+        <h2>{item.title}</h2>
       </div>
     </Link>
   );
