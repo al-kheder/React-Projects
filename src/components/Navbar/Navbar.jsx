@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import Cart from "../Cart/Cart";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 export default function Navbar() {
+  const [isOpen, setisOpen] = useState(false);
   return (
     <div className="navbar">
       <div className="wraper">
@@ -81,13 +83,19 @@ export default function Navbar() {
             <SearchIcon />
             <FavoriteBorderOutlinedIcon />
             <PersonOutlinedIcon />
-            <div className="cartIcon">
+            <div
+              className="cartIcon"
+              onClick={() => {
+                setisOpen(!isOpen);
+              }}
+            >
               <ShoppingCartOutlinedIcon />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+      {isOpen && <Cart />}
     </div>
   );
 }
