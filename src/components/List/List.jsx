@@ -1,8 +1,7 @@
 import React from "react";
-import "./FeaturedProduct.scss";
+import "./List.scss";
 import Card from "../Card/Card";
-
-export default function FeaturedProducts({ type }) {
+export default function List() {
   const fakeData = [
     {
       id: 1,
@@ -27,19 +26,10 @@ export default function FeaturedProducts({ type }) {
   ];
 
   return (
-    <div className="featuredProducts">
-      <div className="top">
-        <h1>{type} products</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </p>
-      </div>
-      <div className="bottom">
-        {fakeData.map((item) => (
-          <Card item={item} key={item.id} />
-        ))}
-      </div>
+    <div className="list">
+      {fakeData.map((item) => (
+        <Card item={item} key={item.id} />
+      ))}
     </div>
   );
 }
